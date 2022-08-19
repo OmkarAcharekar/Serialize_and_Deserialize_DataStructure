@@ -14,6 +14,7 @@ Implemented the concept of Serializing and Deserializing Data structure having L
 * U8Array.size() x LEB (0-x) bytes  - The `uint8_t`s in the vector
 ```
 # Note :  
+
 * All integer types use LEB128 for encoding and decoding.
 * Float and Double is in platform dependent binary format.
 
