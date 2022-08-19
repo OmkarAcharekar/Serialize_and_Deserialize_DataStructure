@@ -11,18 +11,18 @@ public:
     std::vector<uint8_t> data;
     LEB128() = default;
 
-    // a constructor taking an integer and  encodes in the `data` member variable having LEB128 encoded data :
+    // a constructor taking an integer and  encodes in the `data` member variable having LEB128 encoded data
     template <class T, std::enable_if_t<std::is_integral_v<T>, int> = 0>
     explicit LEB128(T v)
-    { // checking if the number signed
+    { // checking if the number is signed
         if constexpr (std::is_signed_v<T>)
         {
-            // signed encoding
+            // signed LEB128 encoding
             bool more = true;
 
             while (more)
             {
-                uint8_t byte = v & 0x7f;
+                T byte = v & 0x7f;
                 v >>= 7;
                 if (v == 0 && (byte & 0x40) == 0)
                     more = false;
@@ -38,10 +38,10 @@ public:
         }
         else
         {
-            // unsigned coding
+            // unsigned LEB128 coding
             do
             {
-                uint8_t x = v & 0b01111111;
+                T x = v & 0b01111111;
                 v >>= 7;
                 if (v)
                     x |= 0b10000000;
@@ -54,18 +54,18 @@ public:
     template <class T>
     std::enable_if_t<std::is_integral_v<T>, T> to() const
     {
-        T result{};
+        T result = 0;
         // checking if the number signed
         if constexpr (std::is_signed_v<T>)
         {
-            // signed decoding
+            // signed LEB128 decoding
             T result = 0;
-            size_t shift = 0;
-            size_t i = 0;
+            T shift = 0;
+            T i = 0;
             int n = 64;
             while (true)
             {
-                uint8_t byte = data[i];
+                T byte = data[i];
                 result |= ((byte & 0x7f) << shift);
                 shift += 7;
                 if ((byte & 0x80) == 0)
@@ -86,11 +86,11 @@ public:
         }
         else
         {
-            // unsigned decoding
+            // unsigned LEB128 decoding
 
             T res = 0, shift = 0;
-            std::size_t i = 0;
-            size_t len = data.size();
+            T i = 0;
+            T len = data.size();
             while (1)
             {
 
