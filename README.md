@@ -13,9 +13,31 @@ Implemented  the concept of Serializing and Deserializing having IEB128 encoding
 * U8Array.size() x LEB (0-x) bytes  - The `uint8_t`s in the vector
 
 
-### Tasks
+# How To Use 
+
+From your command line:
+```bash
+# Clone this repository
+$ git clone https://github.com/OmkarAcharekar/Serialize_and_Deserialize_DataStructure.git
+
+# Go into the repository
+$ cd Serialize_and_Deserialize_DataStructure
+
+
+# Run the Main.cpp file
+$ gcc main.cpp
+$ main
+   
+# output ( Yes : test case passed , No :  failed) 
+Is h1 and h2 equal?  
+
+```
+
+
+
+### Tasks Progress
 
 - [x]  Basic Outline.
 - [x] LEB128 Encoding and Decoding Algorithms.
-- [ ] Describe the Implementation and Usage in Readme
+- [x] Describe the Implementation and Usage in Readme
 - [ ] Test Cases
