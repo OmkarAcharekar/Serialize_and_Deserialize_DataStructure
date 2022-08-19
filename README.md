@@ -15,23 +15,27 @@ Implemented  the concept of Serializing and Deserializing having IEB128 encoding
 
 # How To Use 
 
-From your command line:
-```bash
-# Clone this repository
-$ git clone https://github.com/OmkarAcharekar/Serialize_and_Deserialize_DataStructure.git
+ * Online:
+  
+    [ Use Online link](https://onlinegdb.com/xuS9tuael)
 
-# Go into the repository
-$ cd Serialize_and_Deserialize_DataStructure
+* From your command line:
+  ```bash
+  # Clone this repository
+  $ git clone https://github.com/OmkarAcharekar/Serialize_and_Deserialize_DataStructure.git
+
+  # Go into the repository
+  $ cd Serialize_and_Deserialize_DataStructure
 
 
-# Run the Main.cpp file
-$ gcc main.cpp
-$ main
-   
-# output ( Yes : test case passed , No :  failed) 
-Is h1 and h2 equal?  
+  # Run the Main.cpp file
+  $ gcc main.cpp
+  $ main
 
-```
+  # output ( true : test case passed , false :  failed) 
+  Is h1 and h2 equal?  
+
+  ```
 
 
 
