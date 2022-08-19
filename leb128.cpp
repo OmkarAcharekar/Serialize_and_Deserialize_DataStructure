@@ -38,7 +38,7 @@ public:
         }
         else
         {
-            // unsigned LEB128 coding
+            // unsigned LEB128 encoding
             do
             {
                 T x = v & 0b01111111;
