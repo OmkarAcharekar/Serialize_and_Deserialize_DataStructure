@@ -19,7 +19,7 @@ Implemented the concept of Serializing and Deserializing Data structure having L
 * All integer types use LEB128 for encoding and decoding.
 * Float and Double is in platform dependent binary format.
 * data.cpp file : Data structure , serialize and deserialize functions.
-* leb128.cpp file : LEB Encoding and Decoding algorithms.
+* leb128.cpp file : LEB128 Encoding and Decoding algorithms.
 
 
 ## How To Use 
