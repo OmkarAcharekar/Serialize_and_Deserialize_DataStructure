@@ -51,15 +51,16 @@ Implemented the concept of Serializing and Deserializing Data structure having L
 - [x] Basic Outline.
 - [x] LEB128 Encoding and Decoding Algorithms (Signed).
 - [x] LEB128 Encoding and Decoding Algorithms (UnSigned).
-- [x] Designed the Serialize and Deserialize functions
+- [x] Designed the Serialize and Deserialize functions.
 - [x] Described the Implementation and Usage in Readme.
 - [x] Test Cases.
+
 
 
 ## Reference
 
 * [LEB128](https://en.wikipedia.org/wiki/LEB128)
-* [Medium article](https://basicdrift.com/explore-encoding-base-128-varints-41665a0dca36)
+* [Medium](https://basicdrift.com/explore-encoding-base-128-varints-41665a0dca36)
 
 
 
