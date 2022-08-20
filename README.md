@@ -38,7 +38,7 @@ Implemented the concept of Serializing and Deserializing Data structure having L
   $ g++ -o <name-you-want-to-give-to-executable-file> main.cpp
   $ ./<nameofexecutable-file>
 
-  # output ( Result ::  YES : Passed , NO : failed) 
+  # output ( Result ::  YES : Passed (Implementation is correct) , NO : failed (Implementation is incorrect) 
   
   Test Case :  | int32_t :  float :  int64_t :  double :   vector<uint8_t> :{  }| Result : Is D1 and D2 equal? :   
   Passed :      Failed : 
