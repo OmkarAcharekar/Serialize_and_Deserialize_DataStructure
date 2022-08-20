@@ -91,7 +91,7 @@ public:
             T res = 0, shift = 0;
             T i = 0;
             T len = data.size();
-            while (1)
+            while (true)
             {
 
                 if (i < len)
