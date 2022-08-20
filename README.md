@@ -25,7 +25,8 @@ Implemented the concept of Serializing and Deserializing Data structure having L
   
     [ Use Online link](https://onlinegdb.com/De5HV8GHT)
 
-* From your command line:
+* From the Command Prompt (Windows) or Terminal (macOS):
+
   ```bash
   # Clone this repository
   $ git clone https://github.com/OmkarAcharekar/Serialize_and_Deserialize_DataStructure.git
@@ -37,7 +38,7 @@ Implemented the concept of Serializing and Deserializing Data structure having L
   $ g++ -o <name-you-want-to-give-to-executable-file> main.cpp
   $ ./<nameofexecutable-file>
 
-  # output ( Result ::  YES : Passed , NO : failed) 
+  # output ( Result ::  YES : Passed (Implementation is correct) , NO : failed (Implementation is incorrect) 
   
   Test Case :  | int32_t :  float :  int64_t :  double :   vector<uint8_t> :{  }| Result : Is D1 and D2 equal? :   
   TestCases :: | Passed :      Failed : 
@@ -51,15 +52,16 @@ Implemented the concept of Serializing and Deserializing Data structure having L
 - [x] Basic Outline.
 - [x] LEB128 Encoding and Decoding Algorithms (Signed).
 - [x] LEB128 Encoding and Decoding Algorithms (UnSigned).
-- [x] Designed the Serialize and Deserialize functions
+- [x] Designed the Serialize and Deserialize functions.
 - [x] Described the Implementation and Usage in Readme.
 - [x] Test Cases.
+
 
 
 ## Reference
 
 * [LEB128](https://en.wikipedia.org/wiki/LEB128)
-* [Medium article](https://basicdrift.com/explore-encoding-base-128-varints-41665a0dca36)
+* [Medium](https://basicdrift.com/explore-encoding-base-128-varints-41665a0dca36)
 
 
 
