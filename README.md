@@ -24,11 +24,11 @@ Implemented the concept of Serializing and Deserializing Data structure having L
 
 ## How To Use 
 
- * Try Online:
+ * Try Online (You can directly edit the testcase):
   
     [ Use Online link](https://onlinegdb.com/De5HV8GHT)
 
-* From the Command Prompt (Windows) or Terminal (macOS):
+* From the Command Prompt (Windows) or Terminal (macOS) (It contains 20 testcases):
 
   ```bash
   # Clone this repository
