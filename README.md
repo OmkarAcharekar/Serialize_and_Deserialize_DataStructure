@@ -34,8 +34,8 @@ Implemented the concept of Serializing and Deserializing Data structure having L
   $ cd Serialize_and_Deserialize_DataStructure
 
   # Run the Main.cpp file
-  $ gcc main.cpp
-  $ main
+  $ g++ -o <name-you-want-to-give-to-executable-file> main.cpp
+  $ ./<nameofexecutable-file>
 
   # output ( Result ::  YES : Passed , NO : failed) 
   
