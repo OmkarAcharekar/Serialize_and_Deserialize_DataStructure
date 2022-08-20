@@ -1,83 +1,93 @@
-#include "leb128.cpp"
+#include "data.cpp"
 #include <cstring>
-#include <fstream>
 #include <sstream>
 #include <string>
-class Data
+#include <iostream>
+#include <fstream>
+#include <vector>
+
+// TestCase Data
+int32_t arr1[] = {3434232, 878787878, 8643232u, 47678798, 455655229, 98812233, 87676767u, 243978776u, 1234444, 2147483647};
+float arr2[] = {222323.44f, 232342.2322f, 1234991.23012f, 44.212f, 12.4412f, 12999.12132f, 2112.66996f, 11288.585f, 91299.944f, 237723.4521f};
+int64_t arr3[] = {9223372036854775807, 21243423245452, 125313243456, 92838592924, 2328693929, 2993423223, 7711111, 0, 1212323, 100000000000};
+double arr4[] = {22.442323777, 287832.2324233, 12347799.23023343433, 44.23212778812, 99124.4787412, 1882.39922, 12.66999999999912, 112.58877232, 912.999778, 35623.22882111};
+
+// Function to generate random vector of vectors for testdata
+void generate_random_vectors(const int num_of_rand_vectors, std::vector<std::vector<uint8_t>> &vec)
 {
-
-public:
-    int32_t Int32;
-    float Float;
-    int64_t Int64;
-    double Double;
-    std::vector<uint8_t> U8Array;
-
-    // serialize function : similar to std::vector<uint8_t> serialize(Data &D):
-    friend std::ostream &operator<<(std::ostream &os, const Data &D)
+    for (int j = 0; j < num_of_rand_vectors; ++j)
     {
-        os << LEB128(D.Int32);
-        // the float is in platform dependent binary format here:
-        os.write(reinterpret_cast<const char *>(&D.Float), sizeof D.Float);
-        os << LEB128(D.Int64);
-        os.write(reinterpret_cast<const char *>(&D.Double), sizeof D.Double);
-        os << LEB128(D.U8Array.size());
-        for (auto val : D.U8Array)
-            os << LEB128(val);
-
-        return os;
-    }
-
-    // deserialize function  : similar to Data deserialize(std::vector<uint8_t> &Bytes);
-    friend std::istream &operator>>(std::istream &is, Data &l)
-    {
-        LEB128 lebInt32, lebInt64, lebSize;
-        char buf[sizeof l.Float];
-        char buff[sizeof l.Double];
-
-        // the float is in platform dependent binary format here:
-        (is >> lebInt32).read(buf, sizeof buf);
-        std::memcpy(&l.Float, buf, sizeof buf);
-        (is >> lebInt64).read(buff, sizeof buff);
-        std::memcpy(&l.Double, buff, sizeof buff);
-        is >> lebSize;
+        // the vector size will be randomal: between 0 to 19
+        int vec_size = (rand() % 20);
+        std::vector<uint8_t> rand_vec(vec_size);
+        for (int k = 0; k < vec_size; ++k)
         {
-            l.Int32 = lebInt32.to<int32_t>();
-            size_t size = lebSize.to<size_t>();
-            l.U8Array.resize(size);
-            LEB128 tmp;
-            for (auto &val : l.U8Array)
-            {
-                is >> tmp;
-                val = tmp.to<uint8_t>();
-            }
+            // vec element will be random between 1-20
+            rand_vec[k] = 1 + (rand() % 60);
         }
 
-        l.Int64 = lebInt64.to<int64_t>();
-
-        return is;
+        vec.push_back(rand_vec);
     }
-};
-
-bool check(Data x, Data y)
-{
-
-    return x.Int32 == y.Int32 && x.Float == y.Float && x.U8Array == y.U8Array && x.Double == y.Double && x.Int64 == y.Int64;
 }
 
 int main()
 {
-    // {int32_t, float, int64_t, double , vector<uint8_t>}
 
-    Data D1{2147483, 22323.232, 9223372036854, 2.128888, {1, 6, 43, 14, 65, 26, 77, 98, 29, 6, 6, 21}};
-    std::stringstream ss;
-    ss << D1;
+    srand(static_cast<unsigned int>(time(NULL)));
+    std::vector<std::vector<uint8_t>> vec;
+    generate_random_vectors(10, vec);
 
-    Data D2;
-    ss >> D2;
+    int test(0), passed(0), failed(0), testcases(10);
 
-    std ::string result = check(D1, D2) ? "YES" : "NO";
+    while (test < testcases)
+    {
 
-    // If D1 is equal to D2 then implementation is correct
-    std::cout << std::boolalpha << "Is D1 and D2 equal? : " << result << '\n';
+        std::vector<uint8_t> vect;
+        for (int i = 0; i < vec[test].size(); i++)
+        {
+
+            vect.push_back(unsigned(vec[test][i]));
+        }
+        // {int32_t, float, int64_t, double , vector<uint8_t>}
+        Data D1{arr1[test], arr2[test], arr3[test], arr4[test], vect};
+        std::stringstream ss;
+        ss << D1;
+
+        Data D2;
+        ss >> D2;
+
+        std ::string result = check(D1, D2) ? "YES" : "NO";
+        if (result == "YES")
+        {
+            passed++;
+        }
+        else
+        {
+            failed++;
+        }
+        std::cout << "Test Case : " << test + 1 << " | ";
+        std::cout << "int32_t :" << arr1[test] << " "
+                  << "float :" << arr2[test] << " "
+                  << "int64_t :" << arr3[test] << " "
+                  << "double :" << arr4[test] << " "
+                  << " vector<uint8_t> :";
+        std::cout << "{ ";
+        for (int i = 0; i < vect.size(); i++)
+        {
+            std::cout << unsigned(vect[i]) << " ";
+        }
+        std::cout << " }";
+        std::cout << "| Result : ";
+
+        // If D1 is equal to D2 then implementation is correct
+        std::cout
+            << std::boolalpha << "Is D1 and D2 equal? : " << result << '\n';
+        test++;
+        vect.clear();
+    }
+
+    std::cout << "\n";
+
+    std::cout << "Passed : " << passed << "\t"
+              << "Failed : " << failed << "\n";
 }

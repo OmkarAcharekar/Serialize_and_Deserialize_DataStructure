@@ -37,8 +37,10 @@ Implemented the concept of Serializing and Deserializing Data structure having L
   $ gcc main.cpp
   $ main
 
-  # output ( YES : test case passed , NO :  failed) 
-  Is D1 and D2 equal?  
+  # output ( Result ::  YES : Passed , NO : failed) 
+  
+  Test Case :  | int32_t :  float :  int64_t :  double :   vector<uint8_t> :{  }| Result : Is D1 and D2 equal? :   
+  Passed :      Failed : 
 
   ```
 
@@ -51,4 +53,4 @@ Implemented the concept of Serializing and Deserializing Data structure having L
 - [x] LEB128 Encoding and Decoding Algorithms (UnSigned).
 - [x] Designed the Serialize and Deserialize functions
 - [x] Described the Implementation and Usage in Readme.
-- [ ] Test Cases.
+- [x] Test Cases.
