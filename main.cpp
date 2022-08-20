@@ -87,7 +87,8 @@ int main()
     }
 
     std::cout << "\n";
-
+    std::cout << "TestCases :: "
+              << " ";
     std::cout << "Passed : " << passed << "\t"
               << "Failed : " << failed << "\n";
 }
