@@ -24,11 +24,11 @@ Implemented the concept of Serializing and Deserializing Data structure having L
 
 ## How To Use 
 
- * Try Online (You can directly edit the testcase):
+ * Try Online (You can directly edit the testcase) :
   
     [ Use Online link](https://onlinegdb.com/De5HV8GHT)
 
-* From the Command Prompt (Windows) or Terminal (macOS) (It contains 20 testcases):
+* From the Command Prompt (Windows) or Terminal (macOS) (It contains 20 testcases) :
 
   ```bash
   # Clone this repository
@@ -57,7 +57,7 @@ Implemented the concept of Serializing and Deserializing Data structure having L
 - [x] LEB128 Encoding and Decoding Algorithms (UnSigned).
 - [x] Designed the Serialize and Deserialize functions.
 - [x] Described the Implementation and Usage in Readme.
-- [x] Test Cases.
+- [x] Add Test Cases 
 
 
 
