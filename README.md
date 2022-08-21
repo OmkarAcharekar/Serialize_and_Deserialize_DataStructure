@@ -30,6 +30,8 @@ Implemented the concept of Serializing and Deserializing Data structure having L
 
 * From the Command Prompt (Windows) or Terminal (macOS) (It contains 20 testcases) :
 
+  To clone and run successfully this project, you should have C++17 / above version  and Git installed on your computer.
+  
   ```bash
   # Clone this repository
   $ git clone https://github.com/OmkarAcharekar/Serialize_and_Deserialize_DataStructure.git
