@@ -28,7 +28,7 @@ Implemented the concept of Serializing and Deserializing Data structure having L
   
     [ Use Online link](https://onlinegdb.com/ifj9QX7RH)
 
-* From the Command Prompt (Windows) or Terminal (macOS) (It contains 20 testcases) :
+* From the Command Prompt (Windows) or Terminal (macOS) (It contains 25 testcases) :
 
   
   
