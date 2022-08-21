@@ -8,6 +8,7 @@ class LEB128
 {
 
 public:
+    // LEB128 Encoded data : vector<uint8_t> &Bytes
     std::vector<uint8_t> data;
     LEB128() = default;
 
