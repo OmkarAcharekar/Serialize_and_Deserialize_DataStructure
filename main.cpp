@@ -41,7 +41,7 @@ int main()
 
     while (test < testcases)
     {
-
+        std::cout << "---------------------------------------------------------------------------" << '\n';
         std::vector<uint8_t> vect;
         for (int i = 0; i < vec[test].size(); i++)
         {
@@ -84,6 +84,7 @@ int main()
             << std::boolalpha << "Is D1 and D2 equal? : " << result << '\n';
         test++;
         vect.clear();
+        std::cout << "---------------------------------------------------------------------------" << '\n';
     }
 
     std::cout << "\n";
