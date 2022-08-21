@@ -22,15 +22,15 @@ public:
 
             while (more)
             {
-                T byte = v & 0x7f;
+                T byte = v & 0b01111111;
                 v >>= 7;
-                if (v == 0 && (byte & 0x40) == 0)
+                if (v == 0 && (byte & 0b01000000) == 0)
                     more = false;
-                else if (v == -1 && (byte & 0x40) > 0)
+                else if (v == -1 && (byte & 0b01000000) > 0)
                     more = false;
                 else
                 {
-                    byte |= 0x80;
+                    byte |= 0b10000000;
                 }
 
                 data.push_back(byte);
@@ -59,16 +59,14 @@ public:
         if constexpr (std::is_signed_v<T>)
         {
             // signed LEB128 decoding
-            T result = 0;
-            T shift = 0;
-            T i = 0;
-            int n = 64;
+            T result(0), shift(0), i(0);
+            int n(64);
             while (true)
             {
                 T byte = data[i];
-                result |= ((byte & 0x7f) << shift);
+                result |= ((byte & 0b01111111) << shift);
                 shift += 7;
-                if ((byte & 0x80) == 0)
+                if ((byte & 0b10000000) == 0)
                 {
                     break;
                 }
@@ -77,7 +75,7 @@ public:
                     i += 1;
                 }
             }
-            if ((shift < n) && (data[i] & 0x40) != 0)
+            if ((shift < n) && (data[i] & 0b01000000) != 0)
             {
                 result |= (~0 << shift);
             }
@@ -88,17 +86,16 @@ public:
         {
             // unsigned LEB128 decoding
 
-            T res = 0, shift = 0;
-            T i = 0;
-            T len = data.size();
+            T res(0), shift(0), i(0);
+            T len(data.size());
             while (true)
             {
 
                 if (i < len)
                 {
                     uint8_t b = data[i++];
-                    res |= (b & 0x7F) << shift;
-                    if (!(b & 0x80))
+                    res |= (b & 0b01111111) << shift;
+                    if (!(b & 0b10000000))
                     {
                         break;
                     }
