@@ -25,7 +25,7 @@ Implemented the concept of Serializing and Deserializing Data structure having L
 
 **The Implementation in this repo does not strictly follows the signature (serialize and deserialize functions) asked in the pretest.**
  
- To see the implementation that follows the signature given in the pretest : See [here](https://www.onlinegdb.com/3SO2uK-l3e) (Run main.cpp file)
+ To see the implementation that strictly follows the signature given in the pretest : See [here](https://www.onlinegdb.com/3SO2uK-l3e) (Run main.cpp file)
 
 Difference : In the above implementation, While serializing instead of piping the encoded bytes of data members into stream, I have pushed them into a vector with a extra additional byte appended to each member encoded bytes to know type information so that it can be deserialized
 
