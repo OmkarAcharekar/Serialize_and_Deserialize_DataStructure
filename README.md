@@ -21,6 +21,14 @@ Implemented the concept of Serializing and Deserializing Data structure having L
 * data.cpp file : Data structure , serialize and deserialize functions.
 * leb128.cpp file : LEB128 Encoding and Decoding algorithms.
 
+## Important
+
+**The Implementation in this repo does not strictly follows the signature asked in the pretest**
+To see that implementation : See [here](https://www.onlinegdb.com/3SO2uK-l3e) 
+
+Difference : In the above implementation, instead of piping the encoded bytes of data members into stream, I have pushed them into a vector with a extra additional byte appended to each member encoded bytes to know type information so that it can be deserialized
+
+
 
 ## How To Use 
 
