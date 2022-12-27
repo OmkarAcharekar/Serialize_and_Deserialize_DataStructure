@@ -74,7 +74,7 @@ Difference : In the above implementation, While serializing instead of piping th
 ## Reference
 
 * [LEB128](https://en.wikipedia.org/wiki/LEB128)
-* [Medium](https://basicdrift.com/explore-encoding-base-128-varints-41665a0dca36)
+
 
 
 
